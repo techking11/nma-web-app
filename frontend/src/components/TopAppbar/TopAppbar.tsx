@@ -1,22 +1,42 @@
-import AppBar from '@mui/material/AppBar';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
-function App() {
+import Navigation from '@/components/TopAppbar/Navigation';
+import { Divider } from '@mui/material';
+
+export default function TopAppbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const targetHeight = 5;
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY >= targetHeight);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <AppBar color="transparent">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <img
-            className="size-10 rounded-full"
-            src="https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c?w=164&h=164&fit=crop&auto=format"
-            alt="haha"
-          />
-          <Typography sx={{ marginLeft: 1 }}>Justin Nay</Typography>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <Box className="fixed w-full z-40 p-0">
+      <Box
+        className={`bg-white ${
+          isScrolled ? 'h-[30px]' : 'h-[60px]'
+        } transition-all duration-300`}
+      >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters className="cursor-pointer">
+            <img className="size-10 rounded-full" src="/nma.png" alt="haha" />
+            <Link
+              to="/"
+              className="ml-3 capatilize text-lg text-gray-700 font-semibold"
+            >
+              Justin Myo .
+            </Link>
+          </Toolbar>
+        </Container>
+      </Box>
+      <Divider className="z-50 bg-gray-100" />
+      <Navigation isScrolled={isScrolled} />
+    </Box>
   );
 }
-export default App;
