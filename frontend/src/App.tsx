@@ -1,12 +1,11 @@
-import BottomToTop from './components/BottomToTop/BottomToTop';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter } from 'react-router';
+import Router from '@/components/routes/Router';
 
 function App() {
   return (
-    <>
-      <Footer />
-      <BottomToTop />
-    </>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 export default App;

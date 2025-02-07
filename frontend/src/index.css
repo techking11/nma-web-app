@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-right: 0 !important;
+  overflow-y: scroll !important;
+}
