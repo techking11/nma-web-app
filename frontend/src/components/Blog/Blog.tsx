@@ -1,9 +1,11 @@
-import SelectBox from '@/components/FeatureArticles/SelectBox';
-import CardList from '@/components/FeatureArticles/CardList';
+import SelectBox from '@/components/Blog/SelectBox';
+import CardList from '@/components/Blog/CardList';
 import filterItems from '@/data/filterItems';
 import dateItems from '@/data/dateItems';
+import Button from '@/components/Buttons/Button';
+import { Box } from '@mui/material';
 
-export default function FeatureArticles() {
+export default function Blog() {
   return (
     <div className="mt-32 px-3">
       <div className="container xl:max-w-6xl grid grid-cols-12 gap-3 mx-auto">
@@ -18,6 +20,9 @@ export default function FeatureArticles() {
         </div>
       </div>
       <CardList />
+      <Box className="mt-10 mb-20 flex justify-center items-center">
+        <Button content="Load More" />
+      </Box>
     </div>
   );
 }

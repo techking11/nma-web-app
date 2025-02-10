@@ -1,6 +1,4 @@
-import Box from '@mui/material/Box';
-import Card from '@/components/FeatureArticles/CardItem';
-import Button from '@/components/Buttons/Button';
+import Card from '@/components/Blog/CardItem';
 import cardList from '@/data/cardList';
 
 export default function CardList() {
@@ -17,9 +15,6 @@ export default function CardList() {
           />
         ))}
       </div>
-      <Box className="mt-10 mb-20 flex justify-center items-center">
-        <Button content="Load More" />
-      </Box>
     </div>
   );
 }

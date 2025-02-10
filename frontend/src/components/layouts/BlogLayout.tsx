@@ -1,8 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-const FeatureArticles = lazy(
-  () => import('@/components/FeatureArticles/FeatureArticles')
-);
+const Blog = lazy(() => import('@/components/Blog/Blog'));
 const Hero = lazy(() => import('@/components/Hero/Hero'));
 
 export default function BlogLayout() {
@@ -10,7 +8,7 @@ export default function BlogLayout() {
     <div className="blog-layout">
       <Suspense fallback={<div>Loading...</div>}>
         <Hero />
-        <FeatureArticles />
+        <Blog />
       </Suspense>
     </div>
   );
